@@ -16,6 +16,14 @@ RUN cd /tmp && \
     mv ./logstash-1.4.2 /opt/logstash && \
     rm ./logstash-1.4.2.tar.gz
 
+# Download version 1.4.2 of logstash contrib
+RUN cd /tmp && \
+    wget http://download.elasticsearch.org/logstash/logstash/logstash-contrib-1.4.2.tar.gz && \
+    tar -xzvf ./logstash-contrib-1.4.2.tar.gz && \
+    cp -rn ./logstash-contrib-1.4.2/* /opt/logstash/ && \
+    rm -rf /tmp/logstash-contrib-1.4.2 && \
+    rm ./logstash-contrib-1.4.2.tar.gz
+
 # Copy build files to container root
 RUN mkdir /app
 ADD . /app

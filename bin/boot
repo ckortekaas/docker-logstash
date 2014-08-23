@@ -45,6 +45,7 @@ wget $LF_SSL_CERT_KEY_URL -O $LF_SSL_CERT_KEY_FILE
 # Fire up logstash!
 exec /opt/logstash/bin/logstash \
      agent \
+     -l /opt/logstash/logstash_error.log \
      --config $LOGSTASH_CONFIG_FILE \
      -- \
      web
